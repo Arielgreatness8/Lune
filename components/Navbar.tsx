@@ -32,17 +32,51 @@ export default function Navbar() {
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const navStyle = scrolled ? {
+    background: 'rgba(5,11,24,0.85)',
+    backdropFilter: 'blur(20px)',
+    borderBottom: '1px solid rgba(148,163,184,0.08)',
+  } : {}
+
+  const hireStyle = {
+    background: 'rgba(148,163,184,0.06)',
+    border: '1px solid rgba(148,163,184,0.15)',
+    color: '#94A3B8',
+  }
+
+  const mobileHireStyle = {
+    border: '1px solid rgba(148,163,184,0.15)',
+    color: '#94A3B8',
+    display: 'block',
+    textAlign: 'center' as const,
+    padding: '12px',
+    borderRadius: '8px',
+    margin: '8px 32px',
+    fontSize: '11px',
+    fontWeight: 700,
+    letterSpacing: '0.1em',
+    textTransform: 'uppercase' as const,
+  }
+
+  const linkStyle = (l: string) => ({
+    color: active === l.toLowerCase() ? '#E2E8F0' : '#475569',
+    background: 'none' as const,
+    border: 'none' as const,
+    cursor: 'pointer' as const,
+    fontFamily: 'inherit',
+    fontSize: '11px',
+    fontWeight: 600,
+    letterSpacing: '0.1em',
+    textTransform: 'uppercase' as const,
+  })
+
   return (
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
       className="fixed top-0 left-0 w-full z-50"
-      style={scrolled ? {
-        background: 'rgba(5,11,24,0.85)',
-        backdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(148,163,184,0.08)',
-      } : {}}
+      style={navStyle}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 flex items-center justify-between h-16">
 
@@ -61,9 +95,7 @@ export default function Navbar() {
             background: 'linear-gradient(135deg, #F1F5F9, #94A3B8)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-          }}>
-            LUNE
-          </span>
+          }}>LUNE</span>
         </motion.button>
 
         <ul className="hidden md:flex gap-8 list-none items-center">
@@ -71,12 +103,7 @@ export default function Navbar() {
             <li key={l}>
               <motion.button
                 onClick={() => go(l.toLowerCase())}
-                className="text-xs font-semibold tracking-widest uppercase cursor-pointer"
-                style={{
-                  color: active === l.toLowerCase() ? '#E2E8F0' : '#475569',
-                  background: 'none',
-                  border: 'none',
-                }}
+                style={linkStyle(l)}
                 whileHover={{ y: -1 }}
               >
                 {l}
@@ -89,23 +116,20 @@ export default function Navbar() {
           href="https://wa.me/2348086514056"
           target="_blank"
           className="hidden md:flex text-xs font-bold tracking-widest uppercase px-5 py-2 rounded-lg"
-          style={{
-            background: 'rgba(148,163,184,0.06)',
-            border: '1px solid rgba(148,163,184,0.15)',
-            color: '#94A3B8',
-          }}
+          style={hireStyle}
           whileHover={{ scale: 1.03 }}
         >
           Hire Me
         </motion.a>
 
         <button
-          className="md:hidden flex flex-col justify-center gap-1 p-2 cursor-pointer"
+          className="md:hidden p-2 cursor-pointer"
           style={{ background: 'none', border: 'none' }}
           onClick={() => setOpen(o => !o)}
+          aria-label="Menu"
         >
-          <div style={{ width: 20, height: 1, background: '#94A3B8' }} />
-          <div style={{ width: 20, height: 1, background: '#94A3B8' }} />
+          <div style={{ width: 20, height: 1, background: '#94A3B8', marginBottom: 5 }} />
+          <div style={{ width: 20, height: 1, background: '#94A3B8', marginBottom: 5 }} />
           <div style={{ width: 20, height: 1, background: '#94A3B8' }} />
         </button>
       </div>
@@ -118,26 +142,21 @@ export default function Navbar() {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="md:hidden overflow-hidden"
-            style={{
-              background: 'rgba(5,11,24,0.97)',
-              borderBottom: '1px solid rgba(148,163,184,0.08)',
-            }}
+            style={{ background: 'rgba(5,11,24,0.97)', borderBottom: '1px solid rgba(148,163,184,0.08)' }}
           >
             <div className="flex flex-col py-3">
               {LINKS.map(l => (
                 <button
                   key={l}
                   onClick={() => go(l.toLowerCase())}
-                  className="px-8 py-3 text-xs font-semibold tracking-widest uppercase text-left"
-                  style={{ color: '#475569', background: 'none', border: 'none', cursor: 'pointer' }}
+                  style={{ color: '#475569', background: 'none', border: 'none', cursor: 'pointer', padding: '12px 32px', fontSize: '11px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'left' }}
                 >
                   {l}
                 </button>
               ))}
-              
-                href="https://wa.me/2348086514056"
-                target="_blank"
-                className="mx-8 my-2 text-center py-3 rounded-lg text-xs font-bold tracking-widest uppercase" style={{ border: "1px solid rgba(148,163,184,0.15)", color: "#94A3B8" }}>Hire Me</a>
+              <a href="https://wa.me/2348086514056" target="_blank" style={mobileHireStyle}>
+                Hire Me
+              </a>
             </div>
           </motion.div>
         )}
