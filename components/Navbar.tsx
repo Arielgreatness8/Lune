@@ -67,9 +67,9 @@ export default function Navbar() {
           whileHover={{ scale: 1.03 }}
         >Hire Me</motion.a>
 
-          <span style={{ display: 'block', width: '20px', height: '1px', background: '#94A3B8' }} />
-          <span style={{ display: 'block', width: '20px', height: '1px', background: '#94A3B8' }} />
-          <span style={{ display: 'block', width: '20px', height: '1px', background: '#94A3B8' }} />
+          <div style={{ width: 20, height: 1, background: "#94A3B8", marginBottom: 4 }} />
+          <div style={{ width: 20, height: 1, background: "#94A3B8", marginBottom: 4 }} />
+          <div style={{ width: 20, height: 1, background: "#94A3B8", marginBottom: 4 }} />
         </button>
       </div>
 
