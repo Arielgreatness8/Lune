@@ -53,12 +53,10 @@ export default function Navbar() {
       } : {}}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 flex items-center justify-between h-16">
-
-        {/* Logo */}
         <motion.a
           href="#hero"
           onClick={(e) => { e.preventDefault(); handleNavClick('#hero') }}
-          className="flex items-center gap-2.5 cursor-pointer"
+          className="flex items-center gap-2 cursor-pointer"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
         >
@@ -66,7 +64,7 @@ export default function Navbar() {
           <span style={{
             fontFamily: 'Syne, sans-serif',
             fontWeight: 800,
-            fontSize: '1.15rem',
+            fontSize: '1.1rem',
             letterSpacing: '0.12em',
             background: 'linear-gradient(135deg, #F1F5F9, #94A3B8)',
             WebkitBackgroundClip: 'text',
@@ -76,7 +74,6 @@ export default function Navbar() {
           </span>
         </motion.a>
 
-        {/* Desktop links */}
         <ul className="hidden md:flex gap-8 list-none items-center">
           {NAV_LINKS.map((link) => {
             const isActive = activeSection === link.href.replace('#', '')
@@ -103,46 +100,43 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* Hire Me button */}
         <motion.a
           href="https://wa.me/2348086514056?text=Hello%20I%20want%20to%20hire%20you"
           target="_blank"
-          className="hidden md:flex items-center gap-2 text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-lg"
+          className="hidden md:flex items-center gap-2 text-xs font-bold tracking-widest uppercase px-5 py-2 rounded-lg"
           style={{
-            background: 'linear-gradient(135deg, rgba(226,232,240,0.1), rgba(148,163,184,0.05))',
-            border: '1px solid rgba(148,163,184,0.2)',
-            color: '#E2E8F0',
+            background: 'rgba(148,163,184,0.06)',
+            border: '1px solid rgba(148,163,184,0.15)',
+            color: '#94A3B8',
           }}
-          whileHover={{ scale: 1.03, borderColor: 'rgba(226,232,240,0.4)' }}
+          whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
         >
-          🌙 Hire Me
+          Hire Me
         </motion.a>
 
-        {/* Hamburger */}
         <button
-          className="md:hidden flex flex-col gap-[5px] p-2 cursor-pointer"
+          className="md:hidden flex flex-col gap-1 p-2 cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <motion.span
-            animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-            className="block w-5 h-0.5 origin-center"
+            animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+            className="block w-5 h-px origin-center"
             style={{ background: '#94A3B8' }}
           />
           <motion.span
             animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block w-5 h-0.5"
+            className="block w-5 h-px"
             style={{ background: '#94A3B8' }}
           />
           <motion.span
-            animate={menuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-            className="block w-5 h-0.5 origin-center"
+            animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+            className="block w-5 h-px origin-center"
             style={{ background: '#94A3B8' }}
           />
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -162,7 +156,7 @@ export default function Navbar() {
                   
                     href={link.href}
                     onClick={(e) => { e.preventDefault(); handleNavClick(link.href) }}
-                    className="block px-8 py-3.5 text-xs font-semibold tracking-widest uppercase transition-colors"
+                    className="block px-8 py-3 text-xs font-semibold tracking-widest uppercase"
                     style={{ color: '#475569' }}
                   >
                     {link.label}
@@ -175,11 +169,11 @@ export default function Navbar() {
                   target="_blank"
                   className="block text-center py-3 rounded-lg text-xs font-bold tracking-widest uppercase"
                   style={{
-                    border: '1px solid rgba(148,163,184,0.2)',
-                    color: '#E2E8F0',
+                    border: '1px solid rgba(148,163,184,0.15)',
+                    color: '#94A3B8',
                   }}
                 >
-                  🌙 Hire Me
+                  Hire Me
                 </a>
               </li>
             </ul>
