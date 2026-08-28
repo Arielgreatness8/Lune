@@ -32,7 +32,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href) => {
     setMenuOpen(false)
     if (href.startsWith('#')) {
       const el = document.querySelector(href)
@@ -101,7 +101,7 @@ export default function Navbar() {
         </ul>
 
         <motion.a
-          href="https://wa.me/2348086514056?text=Hello%20I%20want%20to%20hire%20you"
+          href="https://wa.me/2348086514056?text=Hello"
           target="_blank"
           className="hidden md:flex items-center gap-2 text-xs font-bold tracking-widest uppercase px-5 py-2 rounded-lg"
           style={{
@@ -165,13 +165,10 @@ export default function Navbar() {
               ))}
               <li className="px-8 py-3">
                 
-                  href="https://wa.me/2348086514056?text=Hello%20I%20want%20to%20hire%20you"
+                  href="https://wa.me/2348086514056?text=Hello"
                   target="_blank"
                   className="block text-center py-3 rounded-lg text-xs font-bold tracking-widest uppercase"
-                  style={{
-                    border: '1px solid rgba(148,163,184,0.15)',
-                    color: '#94A3B8',
-                  }}
+                  style={{ border: '1px solid rgba(148,163,184,0.15)', color: '#94A3B8' }}
                 >
                   Hire Me
                 </a>
