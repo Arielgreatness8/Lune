@@ -137,11 +137,7 @@ export default function Navbar() {
               
                 href="https://wa.me/2348086514056"
                 target="_blank"
-                className="mx-8 my-2 text-center py-3 rounded-lg text-xs font-bold tracking-widest uppercase"
-                style={{ border: '1px solid rgba(148,163,184,0.15)', color: '#94A3B8' }}
-              >
-                Hire Me
-              </a>
+                className="mx-8 my-2 text-center py-3 rounded-lg text-xs font-bold tracking-widest uppercase" style={{ border: "1px solid rgba(148,163,184,0.15)", color: "#94A3B8" }}>Hire Me</a>
             </div>
           </motion.div>
         )}
