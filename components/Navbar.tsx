@@ -66,6 +66,7 @@ export default function Navbar() {
           style={{ background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.15)', color: '#94A3B8' }}
           whileHover={{ scale: 1.03 }}
         >Hire Me</motion.a>
+        <button className='md:hidden flex flex-col gap-1 p-2 cursor-pointer' onClick={() => setOpen(prev => !prev)}>
 
           <div style={{ width: 20, height: 1, background: "#94A3B8", marginBottom: 4 }} />
           <div style={{ width: 20, height: 1, background: "#94A3B8", marginBottom: 4 }} />
