@@ -38,7 +38,8 @@ export default function Skills() {
 
         <div
           ref={ref}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+          style={{ gap: '16px' }}
         >
           {SKILLS.map((skill, i) => (
             <motion.div
@@ -47,7 +48,15 @@ export default function Skills() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.06 }}
               whileHover={{ y: -5, scale: 1.03 }}
-              className="glass-card p-5 text-center cursor-default group"
+              className="glass-card text-center cursor-default group"
+              style={{
+                padding: '22px 12px',
+                minHeight: '145px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
             >
               <span style={{ fontSize: '1.8rem', display: 'block', marginBottom: '8px' }}>
                 {skill.icon}
@@ -56,14 +65,14 @@ export default function Skills() {
                 fontFamily: 'Syne, sans-serif',
                 fontWeight: 700,
                 fontSize: '0.78rem',
-                color: '#94A3B8',
-                marginBottom: '4px',
+                color: '#CBD5E1',
+                marginBottom: '6px',
               }}>
                 {skill.name}
               </div>
               <div style={{
                 fontSize: '10px',
-                color: '#334155',
+                color: '#94A3B8',
                 letterSpacing: '0.05em',
               }}>
                 {skill.level}
